@@ -3,442 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>八下物理 · 互动学习平台 | 苏科版</title>
+<title>八下物理 · 完整学习平台 | 苏科版 · 肖老师</title>
 <style>
-:root {
-  --bg: #f5f3ee;
-  --card: #fff;
-  --text: #2c2c2a;
-  --muted: #888780;
-  --blue: #378ADD;
-  --blue-light: #E6F1FB;
-  --coral: #D85A30;
-  --coral-light: #FAECE7;
-  --green: #639922;
-  --green-light: #EAF3DE;
-  --purple: #7F77DD;
-  --purple-light: #EEEDFE;
-  --amber: #EF9F27;
-  --amber-light: #FAEEDA;
-  --border: #d3d1c7;
-  --radius: 12px;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'PingFang SC','Microsoft YaHei',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
-a { color:var(--blue); text-decoration:none; }
-
-header { background: linear-gradient(135deg, #1a3a5c 0%, #2a5a8c 50%, #1a3a5c 100%); color:#fff; padding:32px 24px 24px; text-align:center; }
-header h1 { font-size:24px; font-weight:600; margin-bottom:6px; }
-header p { font-size:13px; opacity:.8; }
-
-.container { max-width:900px; margin:0 auto; padding:20px 16px; }
-
-nav.chapters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; position:sticky; top:0; background:var(--bg); padding:12px 0; z-index:10; border-bottom:1px solid var(--border); }
-nav.chapters button { padding:8px 16px; border:1px solid var(--border); border-radius:20px; background:var(--card); cursor:pointer; font-size:13px; transition:.2s; white-space:nowrap; }
-nav.chapters button:hover { background:var(--blue); color:#fff; border-color:var(--blue); }
-nav.chapters button.active { background:var(--blue); color:#fff; border-color:var(--blue); }
-
-.section { margin-bottom:32px; }
-.section h2 { font-size:20px; margin-bottom:16px; padding-bottom:8px; border-bottom:2px solid var(--blue); display:flex; align-items:center; gap:8px; }
-.section h2 .emoji { font-size:24px; }
-
-.card { background:var(--card); border-radius:var(--radius); padding:20px; margin-bottom:16px; border:1px solid var(--border); }
-.card h3 { font-size:16px; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
-.card h3 .tag { font-size:11px; padding:2px 8px; border-radius:10px; font-weight:400; }
-
-.tag-formula { background:var(--purple-light); color:#534AB7; }
-.tag-key { background:var(--amber-light); color:#854F0B; }
-.tag-tip { background:var(--coral-light); color:#993C1D; }
-.tag-example { background:var(--green-light); color:#3B6D11; }
-
-.formula-box { background:var(--blue-light); border-radius:8px; padding:14px 18px; margin:10px 0; font-size:16px; font-weight:600; text-align:center; border-left:4px solid var(--blue); }
-.formula-box var { font-style:italic; color:var(--blue); }
-
-ul, ol { padding-left:20px; margin:8px 0; }
-li { margin-bottom:4px; }
-
-table { width:100%; border-collapse:collapse; margin:10px 0; font-size:13px; }
-th { background:#2F5496; color:#fff; padding:8px 10px; text-align:center; font-weight:500; }
-td { padding:8px 10px; border:1px solid var(--border); text-align:center; }
-tr:nth-child(even) td { background:#f0f4f8; }
-
-.accordion { margin:8px 0; }
-.accordion-header { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:12px 16px; cursor:pointer; font-weight:500; display:flex; justify-content:space-between; align-items:center; transition:.2s; }
-.accordion-header:hover { background:var(--blue-light); }
-.accordion-header .arrow { transition:.3s; font-size:12px; }
-.accordion-header.open .arrow { transform:rotate(180deg); }
-.accordion-body { display:none; padding:16px; background:var(--card); border:1px solid var(--border); border-top:none; border-radius:0 0 8px 8px; margin-top:-1px; }
-.accordion-body.show { display:block; }
-
-.quiz { background:var(--card); border-radius:var(--radius); padding:20px; border:2px solid var(--green); margin:10px 0; }
-.quiz .question { font-weight:600; margin-bottom:12px; }
-.quiz label { display:block; padding:8px 12px; margin:4px 0; border-radius:6px; cursor:pointer; border:1px solid var(--border); transition:.2s; }
-.quiz label:hover { background:var(--green-light); }
-.quiz input[type="radio"] { margin-right:8px; }
-.quiz .feedback { display:none; margin-top:10px; padding:10px; border-radius:6px; font-size:13px; }
-.quiz .feedback.correct { background:#d4edda; color:#155724; display:block; }
-.quiz .feedback.wrong { background:#f8d7da; color:#721c24; display:block; }
-.quiz button { margin-top:10px; padding:8px 20px; background:var(--green); color:#fff; border:none; border-radius:20px; cursor:pointer; font-size:14px; }
-
-.tooltip { position:relative; cursor:help; border-bottom:1px dotted var(--blue); }
-.tooltip::after { content:attr(data-tip); position:absolute; bottom:120%; left:50%; transform:translateX(-50%); background:#333; color:#fff; padding:4px 10px; border-radius:4px; font-size:11px; white-space:nowrap; opacity:0; pointer-events:none; transition:.2s; }
-.tooltip:hover::after { opacity:1; }
-
-footer { text-align:center; padding:32px; color:var(--muted); font-size:12px; }
-
-@media (max-width:600px) {
-  .container { padding:12px 8px; }
-  nav.chapters button { font-size:11px; padding:6px 10px; }
-  .card { padding:14px; }
-}
+:root{--bg:#f5f3ee;--card:#fff;--text:#2c2c2a;--muted:#888780;--blue:#378ADD;--bl:#E6F1FB;--coral:#D85A30;--cl:#FAECE7;--green:#639922;--gl:#EAF3DE;--purple:#7F77DD;--pl:#EEEDFE;--amber:#EF9F27;--al:#FAEEDA;--teal:#1D9E75;--tl:#E1F5EE;--red:#A32D2D;--rl:#FCEBEB;--border:#d3d1c7;--r:12px}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--text);line-height:1.75;font-size:15px}a{color:var(--blue)}header{background:linear-gradient(135deg,#0d2137 0%,#1a3a5c 30%,#2a5a8c 70%,#0d2137 100%);color:#fff;padding:40px 20px 28px;text-align:center}header h1{font-size:26px;font-weight:600;margin-bottom:6px}header p{font-size:13px;opacity:.8}.container{max-width:960px;margin:0 auto;padding:20px 18px}nav.chapters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:10;border-bottom:1px solid var(--border)}nav.chapters button{padding:7px 14px;border:1px solid var(--border);border-radius:20px;background:var(--card);cursor:pointer;font-size:12px;transition:.2s}nav.chapters button:hover,nav.chapters button.active{background:var(--blue);color:#fff;border-color:var(--blue)}.subsection{margin-bottom:20px;padding:18px 20px;background:var(--card);border-radius:var(--r);border:1px solid var(--border)}.subsection h4{font-size:15px;margin-bottom:8px;display:flex;align-items:center;gap:8px;color:#1a3a5c}.tag{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:400;white-space:nowrap}.tag-k{background:var(--al);color:#854F0B}.tag-f{background:var(--pl);color:#534AB7}.tag-t{background:var(--cl);color:#993C1D}.tag-e{background:var(--gl);color:#3B6D11}.tag-d{background:var(--tl);color:#085041}.tag-w{background:var(--rl);color:#791F1F}.fb{padding:12px 16px;margin:8px 0;border-radius:8px;font-size:14px;border-left:4px solid var(--blue);background:var(--bl)}.fb.coral{border-color:var(--coral);background:var(--cl)}.fb.green{border-color:var(--green);background:var(--gl)}.fb.amber{border-color:var(--amber);background:var(--al)}.fb.red{border-color:var(--red);background:var(--rl)}.fb var,.fb code{font-style:italic;font-weight:600;color:var(--blue)}.fb.coral var{color:var(--coral)}ul,ol{padding-left:22px;margin:6px 0}li{margin-bottom:3px}table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}th{background:#2F5496;color:#fff;padding:7px 9px;text-align:center;font-weight:500}td{padding:7px 9px;border:1px solid var(--border);text-align:center}tr:nth-child(even) td{background:#f0f4f8}.quiz{margin:14px 0;padding:16px 20px;background:var(--card);border-radius:var(--r);border:2px solid var(--teal)}.quiz .q{font-weight:600;margin-bottom:10px;font-size:14px}.quiz label{display:block;padding:7px 12px;margin:2px 0;border-radius:6px;cursor:pointer;border:1px solid var(--border);font-size:13px;transition:.2s}.quiz label:hover{background:var(--tl)}.quiz input[type="radio"]{margin-right:8px}.quiz .fdb{display:none;margin-top:8px;padding:10px;border-radius:6px;font-size:13px;line-height:1.6}.quiz .fdb.ok{display:block;background:#d4edda;color:#155724}.quiz .fdb.no{display:block;background:#f8d7da;color:#721c24}.quiz button{margin-top:8px;padding:7px 18px;background:var(--teal);color:#fff;border:none;border-radius:20px;cursor:pointer;font-size:13px}h2{font-size:22px;margin:36px 0 12px;padding-bottom:6px;border-bottom:3px solid var(--blue)}h3{font-size:17px;margin:20px 0 10px;color:#1a3a5c}footer{text-align:center;padding:40px;color:var(--muted);font-size:12px}@media(max-width:600px){.container{padding:10px 6px}.subsection{padding:12px}header h1{font-size:20px}nav.chapters button{font-size:10px;padding:5px 8px}}
 </style>
 </head>
 <body>
-
 <header>
-  <h1>📐 八年级物理（下）互动学习平台</h1>
-  <p>苏科版 · 第6~10章 · 肖老师精选 | 知识点 + 公式 + 实验 + 自测</p>
+<h1>八下物理 · 完整学习平台</h1>
+<p>苏科版 · 第6~10章全覆盖 · 知识点+案例+公式+实验+习题 · 肖老师制作</p>
 </header>
-
 <nav class="chapters" id="nav">
-  <button onclick="scrollToSection('ch6')" class="active">第6章 物质属性</button>
-  <button onclick="scrollToSection('ch7')">第7章 粒子宇宙</button>
-  <button onclick="scrollToSection('ch8')">第8章 力</button>
-  <button onclick="scrollToSection('ch9')">第9章 力与运动</button>
-  <button onclick="scrollToSection('ch10')">第10章 压强浮力</button>
+<button onclick="go('ch6')" class="active">第6章·物质属性</button>
+<button onclick="go('ch7')">第7章·粒子宇宙</button>
+<button onclick="go('ch8')">第8章·力</button>
+<button onclick="go('ch9')">第9章·力与运动</button>
+<button onclick="go('ch10')">第10章·压强浮力</button>
 </nav>
-
 <div class="container">
-
-<!-- ═══════════ CHAPTER 6 ═══════════ -->
-<section id="ch6" class="section">
-<h2><span class="emoji">⚖️</span> 第6章 物质的物理属性</h2>
-
-<div class="card">
-  <h3><span class="tag tag-key">核心概念</span> 质量（m）</h3>
-  <p><strong>定义：</strong>物体所含物质的多少。单位：<strong>千克（kg）</strong>。</p>
-  <p>换算：1t = 10³kg = 10⁶g = 10⁹mg</p>
-  <p>⚠️ 质量是<span class="tooltip" data-tip="不随形状、状态、位置、温度变化">物体本身的属性</span>，不是重量！</p>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-key">实验</span> 天平的使用步骤</h3>
-  <ol>
-    <li><strong>放：</strong>水平台上，游码归零</li>
-    <li><strong>调：</strong>调平衡螺母 → 指针指中央</li>
-    <li><strong>称：</strong><span class="tooltip" data-tip="左物右码！">左盘放物</span>，镊子取砝码（从大到小），调游码</li>
-    <li><strong>读：</strong>物体质量 = 砝码总和 + 游码刻度</li>
-  </ol>
-</div>
-
-<div class="formula-box">
-  密度公式：<var>ρ</var> = <var>m</var> / <var>V</var>
-  &nbsp;&nbsp;|&nbsp;&nbsp; 单位：kg/m³ 或 g/cm³ &nbsp;&nbsp;|&nbsp;&nbsp; <var>ρ</var><sub>水</sub> = 1.0×10³ kg/m³
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-formula">公式应用</span> 密度知识三用途</h3>
-  <table>
-    <tr><th>用途</th><th>公式</th><th>操作</th></tr>
-    <tr><td>鉴别物质</td><td>ρ = m/V</td><td>天平测 m + 量筒测 V → 查密度表</td></tr>
-    <tr><td>求质量</td><td>m = ρV</td><td>已知 ρ 和 V</td></tr>
-    <tr><td>求体积</td><td>V = m/ρ</td><td>已知 m 和 ρ</td></tr>
-  </table>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-tip">易错点</span> 空心/实心判断</h3>
-  <p>三种方法任选一种：</p>
-  <ul>
-    <li>① <strong>比质量：</strong>m<sub>实际</sub> vs m<sub>理论</sub> = ρV → 实际质量小 → 空心</li>
-    <li>② <strong>比体积：</strong>V<sub>实际</sub> vs V<sub>物质</sub> = m/ρ → 实际体积大 → 空心</li>
-    <li>③ <strong>比密度：</strong>ρ<sub>实际</sub> = m/V<sub>实际</sub> vs ρ<sub>物质</sub> → 实际ρ小 → 空心</li>
-  </ul>
-</div>
-
-<div class="quiz" id="quiz6">
-  <div class="question">🧪 自测：有一个铜球178g，体积30cm³，ρ<sub>铜</sub>=8.9g/cm³。它空心还是实心？空心体积多少？</div>
-  <label><input type="radio" name="q6" value="a">实心</label>
-  <label><input type="radio" name="q6" value="b">空心，空心体积10cm³</label>
-  <label><input type="radio" name="q6" value="c">空心，空心体积5cm³</label>
-  <label><input type="radio" name="q6" value="d">空心，空心体积20cm³</label>
-  <button onclick="checkQ6()">提交</button>
-  <div class="feedback" id="fb6"></div>
-</div>
+<section id="ch6"><h2>第6章 物质的物理属性</h2>
+<div class="subsection"><h4><span class="tag tag-k">6.1</span> 质量的概念与单位</h4><p><strong>质量（m）：</strong>物体中所含物质的多少。它是物体的固有属性，不随形状、状态、温度、位置的改变而改变。</p><p>国际单位：<strong>千克（kg）</strong>。换算：1t=10³kg=10⁶g=10⁹mg。</p><div class="fb"><strong>案例1：</strong>一块冰化成水，质量变吗？<br>答：<var>不变</var>。状态变了但物质多少没变。宇航员从地球到月球，质量也不变。</div><div class="fb coral"><strong>案例2：</strong>"1kg棉花和1kg铁谁重？"<br>答：<var>一样重</var>。但棉花的<var>体积大</var>（密度小），铁的<var>体积小</var>（密度大）。</div></div>
+<div class="subsection"><h4><span class="tag tag-k">6.2</span> 天平的使用（重点实验）</h4><p><strong>四步法：</strong></p><ol><li><strong>放：</strong>水平台，游码归零</li><li><strong>调：</strong>调平衡螺母→指针指中央</li><li><strong>称：</strong>左物右码，镊子夹砝码（大→小），拨游码</li><li><strong>读：</strong>物体质量=砝码+游码刻度</li></ol><div class="fb green"><strong>注意：</strong>不能超量程；砝码用镊子；潮湿/化学药品垫纸或放烧杯中称。</div><div class="fb amber"><strong>坑：</strong>天平调平后互换物码位置——读出的不是真实质量！左码右物时 m物 = m码 - m游。</div></div>
+<div class="subsection"><h4><span class="tag tag-f">6.3</span> 密度——核心公式</h4><p><strong>定义：</strong>某种物质单位体积的质量。<strong>公式：</strong><var>ρ = m / V</var></p><p>单位：kg/m³ 或 g/cm³。换算：<strong>1g/cm³ = 1000 kg/m³</strong></p><p><strong>ρ水 = 1.0×10³ kg/m³ = 1 g/cm³</strong></p><div class="fb"><strong>密度是物质的特性：</strong>同种物质密度相同；不同物质密度一般不同。温度升高→体积膨胀→密度<var>减小</var>（水在4℃时密度最大，例外！）。</div><p><strong>密度知识的三种应用：</strong></p><table><tr><th>应用</th><th>公式</th><th>示例</th></tr><tr><td>鉴别物质</td><td>ρ=m/V</td><td>测出m和V→查密度表→判断是哪种物质</td></tr><tr><td>求质量</td><td>m=ρV</td><td>一块2m³大理石(ρ=2.7)，质量=5.4t</td></tr><tr><td>求体积</td><td>V=m/ρ</td><td>1kg水的体积=1000cm³=1L</td></tr></table></div>
+<div class="subsection"><h4><span class="tag tag-t">6.4</span> 空心/实心判断（三种方法）</h4><div class="fb amber"><strong>例题：</strong>铁球158g，体积30cm³，<var>ρ铁=7.9g/cm³</var>，判断是否空心？</div><p><strong>方法① 比质量：</strong>m理论=7.9×30=237g > 158g→实际质量小→<strong>空心</strong></p><p><strong>方法② 比体积：</strong>V铁=158/7.9=20cm³ < 30cm³→实际体积大→<strong>空心，空心=10cm³</strong></p><p><strong>方法③ 比密度：</strong>ρ实际=158/30≈5.27 < 7.9→<strong>空心</strong></p><div class="fb green">三种方法等效，方法②还能直接求空心体积！</div></div>
+<div class="subsection"><h4><span class="tag tag-e">6.5</span> 密度测量实验</h4><p><strong>① 测固体密度（不溶于水）：</strong></p><ol><li>天平测质量 m</li><li>量筒中加水，读数 V₁</li><li>物体浸没，读数 V₂</li><li>ρ = m/(V₂-V₁)</li></ol><div class="fb coral"><strong>先测质量还是先测体积？</strong>先测质量！如果先浸水再称，物体会沾水使质量偏大→密度偏大。</div><p><strong>② 测液体密度（减液法）：</strong></p><ol><li>测烧杯+液体总质量 m₁</li><li>倒入量筒一部分，读体积 V</li><li>测剩余烧杯+液体质量 m₂</li><li>ρ = (m₁-m₂)/V</li></ol><div class="fb">减液法的好处：<var>避免了烧杯残留带来的误差</var>。</div></div>
+<div class="subsection"><h4><span class="tag tag-k">6.6</span> 物质的其它物理属性</h4><p><strong>硬度：</strong>物质抵抗被划破的能力。铅笔4B→2B→HB→2H→4H，越右越硬。</p><p><strong>弹性/塑性：</strong>弹性→撤力恢复原状（弹簧）；塑性→撤力不能恢复（橡皮泥）。</p><p><strong>导电/导热性：</strong>金属好，非金属差。</p></div>
+<h3>第6章 综合练习（5题）</h3>
+<div class="quiz"><div class="q">1. 冰化成水后（ ）</div><label><input type="radio" name="q6a">A. 质量变小，密度不变</label><label><input type="radio" name="q6a">B. 质量不变，密度变大</label><label><input type="radio" name="q6a">C. 质量变大，密度变小</label><label><input type="radio" name="q6a">D. 质量和密度都不变</label><button onclick="r('f6a','B','冰化成水质量不变，水密度(1g/cm³)比冰(0.9g/cm³)大。')">提交</button><div class="fdb" id="f6a"></div></div>
+<div class="quiz"><div class="q">2. 天平测物体质量时，指针偏左，应如何调节？</div><label><input type="radio" name="q6b">A. 向左调平衡螺母</label><label><input type="radio" name="q6b">B. 向右调平衡螺母</label><label><input type="radio" name="q6b">C. 增加砝码</label><label><input type="radio" name="q6b">D. 移动游码</label><button onclick="r('f6b','B','称量前调平：指针偏左→右边轻→平衡螺母向右调。')">提交</button><div class="fdb" id="f6b"></div></div>
+<div class="quiz"><div class="q">3. 铜球178g，体积30cm³，空心体积多少？(ρ铜=8.9)</div><label><input type="radio" name="q6c">A. 5cm³</label><label><input type="radio" name="q6c">B. 10cm³</label><label><input type="radio" name="q6c">C. 15cm³</label><label><input type="radio" name="q6c">D. 20cm³</label><button onclick="r('f6c','B','V铜=m/ρ=20cm³。空心=30-20=10cm³。')">提交</button><div class="fdb" id="f6c"></div></div>
+<div class="quiz"><div class="q">4. 甲物体积是乙的2倍，质量是乙的1/2，ρ甲:ρ乙=？</div><label><input type="radio" name="q6d">A. 1:4</label><label><input type="radio" name="q6d">B. 1:2</label><label><input type="radio" name="q6d">C. 4:1</label><label><input type="radio" name="q6d">D. 2:1</label><button onclick="r('f6d','A','ρ甲/ρ乙=(1/2)/(2)=1/4。')">提交</button><div class="fdb" id="f6d"></div></div>
+<div class="quiz"><div class="q">5. 等质量水和酒精(ρ酒精=0.8)混合，体积不变，混合密度？</div><label><input type="radio" name="q6e">A. 0.85</label><label><input type="radio" name="q6e">B. 0.89</label><label><input type="radio" name="q6e">C. 0.90</label><label><input type="radio" name="q6e">D. 0.95</label><button onclick="r('f6e','B','各m克，V=m/1+m/0.8=2.25m。ρ=2m/2.25m≈0.889。')">提交</button><div class="fdb" id="f6e"></div></div>
 </section>
-
-<!-- ═══════════ CHAPTER 7 ═══════════ -->
-<section id="ch7" class="section">
-<h2><span class="emoji">🔬</span> 第7章 从粒子到宇宙</h2>
-
-<div class="card">
-  <h3><span class="tag tag-key">分子动理论</span> 三个要点</h3>
-  <table>
-    <tr><th>要点</th><th>内容</th></tr>
-    <tr><td>①</td><td>物质由大量分子组成，分子间有间隙（直径约10⁻¹⁰m）</td></tr>
-    <tr><td>②</td><td>分子永不停息地做无规则运动（热运动），温度越高越剧烈</td></tr>
-    <tr><td>③</td><td>分子间存在引力和斥力（同时存在！）</td></tr>
-  </table>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-tip">判断</span> 扩散 vs 机械运动</h3>
-  <p>✅ <strong>扩散</strong>（分子运动）：花香飘散、腌菜入味、墨水滴入清水</p>
-  <p>❌ <strong>机械运动</strong>（非分子运动）：尘土飞扬、柳絮飘飞、烟雾缭绕</p>
-  <p>扩散速度：<strong>气体 > 液体 > 固体</strong></p>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-key">静电</span> 两种电荷</h3>
-  <table>
-    <tr><th>正电荷</th><td>与丝绸摩擦过的<span class="tooltip" data-tip="记住：玻正橡负！">玻璃棒</span></td></tr>
-    <tr><th>负电荷</th><td>与毛皮摩擦过的<span class="tooltip" data-tip="记住：玻正橡负！">橡胶棒</span></td></tr>
-    <tr><th>规律</th><td>同种电荷排斥，异种电荷吸引</td></tr>
-  </table>
-  <p>⚠️ 摩擦起电<span class="tooltip" data-tip="不是创造电荷，只是电荷转移！">不产生电荷</span>，只是电荷从一个物体转移到另一个物体。</p>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-key">原子结构</span></h3>
-  <p>原子核（质子+中子）+ 核外电子。质子带正电，中子不带电，电子带负电。</p>
-  <p>微观尺度：分子 > 原子 > 质子/中子 > 夸克</p>
-  <p><strong>光年</strong>是<span class="tooltip" data-tip="光年不是时间单位！">长度单位</span>：1光年 ≈ 9.46×10¹⁵m</p>
-</div>
+<section id="ch7"><h2>第7章 从粒子到宇宙</h2>
+<div class="subsection"><h4><span class="tag tag-k">7.1</span> 分子动理论（三大要点）</h4><p>① 物质由大量分子组成，分子间有间隙（直径约10⁻¹⁰m）</p><p>② 分子永不停息地做无规则运动——<strong>热运动</strong>（温度越高越剧烈）</p><p>③ 分子间<strong>同时存在</strong>引力和斥力</p><div class="fb">压缩物体→斥力起作用（固体难压缩）；拉伸物体→引力起作用（钢丝难拉断）。破镜不能重圆→断裂处分子间距>10倍分子直径，引力可忽略。</div></div>
+<div class="subsection"><h4><span class="tag tag-t">7.2</span> 扩散现象——分子运动的证据</h4><p><strong>扩散：</strong>不同物质相互接触时，彼此进入对方的现象。</p><div class="fb green"><strong>案例：</strong>香水瓶打开→满屋飘香（气体扩散）。盐撒进汤→整锅变咸（液体扩散）。金块和铅块紧压几年→互相渗入（固体扩散最慢）。<br><strong>结论：</strong>一切物质的分子都在不停运动。扩散速度：气体 > 液体 > 固体。</div><div class="fb coral"><strong>区分扩散和机械运动：</strong>花香→扩散✓；尘土飞扬→机械运动✗；柳絮飘飞→机械运动✗。</div></div>
+<div class="subsection"><h4><span class="tag tag-k">7.3</span> 分子间的相互作用力</h4><p>引力和斥力<strong>同时存在</strong>。距离太近→斥力>引力；距离适中→引力=斥力；距离太远→都趋于零。</p><div class="fb amber"><strong>案例：</strong>两根铅柱端面磨平紧压，能吊起钩码——<var>分子引力</var>在起作用。端面不磨平则不能成功→只有少数分子靠得够近。</div></div>
+<div class="subsection"><h4><span class="tag tag-k">7.4</span> 静电现象</h4><table><tr><th>知识点</th><th>内容</th></tr><tr><td>摩擦起电</td><td>摩擦使物体带电。带电体可吸引轻小物体。</td></tr><tr><td>正电荷</td><td>与丝绸摩擦过的玻璃棒</td></tr><tr><td>负电荷</td><td>与毛皮摩擦过的橡胶棒（口诀：玻正橡负）</td></tr><tr><td>电荷规律</td><td>同斥异吸</td></tr></table><div class="fb coral"><strong>核心认知：</strong>摩擦起电不是创造电荷，只是电子从一个物体<var>转移</var>到另一个物体。</div></div>
+<div class="subsection"><h4><span class="tag tag-k">7.5</span> 原子结构与宇宙</h4><p><strong>汤姆生</strong>发现电子→原子可分。<strong>卢瑟福</strong>核式模型：原子核（带正电）+核外电子绕核高速运动。</p><p>原子核=质子（正电）+中子（不带电）。质子/中子由<strong>夸克</strong>构成。</p><p>微观尺度链：<strong>分子 > 原子 > 原子核 > 质子/中子 > 夸克</strong></p><div class="fb"><strong>光年：</strong>光在真空中一年传播的距离。<var>长度单位</var>（不是时间单位！）。1光年≈9.46×10¹⁵m。<br><strong>宇宙结构：</strong>地月系→太阳系→银河系→宇宙。哥白尼提出"日心说"。</div></div>
+<h3>第7章 综合练习（4题）</h3>
+<div class="quiz"><div class="q">1. 下列属于扩散的是（ ）</div><label><input type="radio" name="q7a">A. 尘土飞扬</label><label><input type="radio" name="q7a">B. 雪花飘飘</label><label><input type="radio" name="q7a">C. 桂花飘香</label><label><input type="radio" name="q7a">D. 柳絮纷飞</label><button onclick="r('f7a','C','桂花飘香是花香分子扩散。A/B/D都是宏观机械运动。')">提交</button><div class="fdb" id="f7a"></div></div>
+<div class="quiz"><div class="q">2. 固体很难被压缩是因为（ ）</div><label><input type="radio" name="q7b">A. 分子间没有间隙</label><label><input type="radio" name="q7b">B. 分子间有引力</label><label><input type="radio" name="q7b">C. 分子间有斥力</label><label><input type="radio" name="q7b">D. 分子在不断运动</label><button onclick="r('f7b','C','压缩时分子间距变小→斥力急剧增大→难以继续压缩。')">提交</button><div class="fdb" id="f7b"></div></div>
+<div class="quiz"><div class="q">3. 关于"光年"，正确的是（ ）</div><label><input type="radio" name="q7c">A. 时间单位</label><label><input type="radio" name="q7c">B. 速度单位</label><label><input type="radio" name="q7c">C. 长度单位</label><label><input type="radio" name="q7c">D. 质量单位</label><button onclick="r('f7c','C','光年是光走一年的距离，是长度单位。')">提交</button><div class="fdb" id="f7c"></div></div>
+<div class="quiz"><div class="q">4. 同种电荷相互____，异种电荷相互____。</div><label><input type="radio" name="q7d">A. 吸引；排斥</label><label><input type="radio" name="q7d">B. 排斥；吸引</label><label><input type="radio" name="q7d">C. 吸引；吸引</label><label><input type="radio" name="q7d">D. 排斥；排斥</label><button onclick="r('f7d','B','同斥异吸，基础规律！')">提交</button><div class="fdb" id="f7d"></div></div>
 </section>
-
-<!-- ═══════════ CHAPTER 8 ═══════════ -->
-<section id="ch8" class="section">
-<h2><span class="emoji">💪</span> 第8章 力</h2>
-
-<div class="card">
-  <h3><span class="tag tag-key">基础</span> 力的概念</h3>
-  <p><strong>定义：</strong>力是物体对物体的作用。单位：<strong>牛顿（N）</strong></p>
-  <p><strong>作用效果：</strong>① 改变运动状态（快慢/方向） ② 使物体形变</p>
-  <p><strong>三要素：</strong>大小、方向、作用点</p>
-</div>
-
-<div class="formula-box">
-  重力：<var>G</var> = <var>mg</var>
-  &nbsp;&nbsp;|&nbsp;&nbsp; <var>g</var> ≈ 10 N/kg（粗略计算）&nbsp;&nbsp;|&nbsp;&nbsp; 方向：竖直向下
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-formula">胡克定律</span></h3>
-  <p>在弹性限度内：<strong>F = kΔx</strong></p>
-  <p>k 为劲度系数。弹簧截短 → k <strong>变大</strong>（越短越硬！）</p>
-  <p>串联 → k减半；并联 → k加倍。</p>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-key">三种摩擦力</span></h3>
-  <table>
-    <tr><th>种类</th><th>公式/条件</th><th>关键点</th></tr>
-    <tr><td>静摩擦力</td><td>f<sub>静</sub> = 外力（范围内）</td><td>方向与相对运动趋势相反</td></tr>
-    <tr><td>滑动摩擦力</td><td>f = μN</td><td>只与N和粗糙度有关！与速度/面积<span class="tooltip" data-tip="此处最容易错！">无关</span>！</td></tr>
-    <tr><td>滚动摩擦力</td><td>远小于滑动摩擦</td><td>变滑动为滚动可<span class="tooltip" data-tip="所有轮子都利用了这个原理">减小摩擦</span></td></tr>
-  </table>
-</div>
-
-<div class="quiz" id="quiz8">
-  <div class="question">🧪 重20N的物体，用15N水平力推没推动。摩擦力多少？改用25N力匀速运动，摩擦力多少？</div>
-  <label><input type="radio" name="q8" value="a">都为15N</label>
-  <label><input type="radio" name="q8" value="b">15N；25N</label>
-  <label><input type="radio" name="q8" value="c">20N；25N</label>
-  <label><input type="radio" name="q8" value="d">15N；20N</label>
-  <button onclick="checkQ8()">提交</button>
-  <div class="feedback" id="fb8"></div>
-</div>
+<section id="ch8"><h2>第8章 力</h2>
+<div class="subsection"><h4><span class="tag tag-k">8.1</span> 力的基本概念</h4><p><strong>定义：</strong>力是物体对物体的作用。力的作用是相互的。<strong>单位：</strong>牛顿（N）</p><p><strong>作用效果：</strong>①改变运动状态（快慢/方向）②使物体形变</p><p><strong>三要素：</strong>大小、方向、作用点。三者中任一改变，力的效果就不同。</p><div class="fb amber"><strong>案例：</strong>推门时力作用在门把手（远离门轴）比作用在门轴附近省力——作用点不同，效果不同。</div></div>
+<div class="subsection"><h4><span class="tag tag-f">8.2</span> 弹力与弹簧测力计</h4><p><strong>弹性：</strong>撤力后恢复原状。<strong>塑性：</strong>撤力后不能恢复。</p><p><strong>弹力：</strong>物体发生弹性形变时产生的力（拉力、压力、支持力都属于弹力）。</p><p><strong>胡克定律：</strong>在弹性限度内，<var>F = k·Δx</var>（弹簧伸长量与拉力成正比）。</p><div class="fb"><strong>重要结论：</strong>弹簧截短→k<var>变大</var>（越短越硬）。两根相同弹簧串联→k减半；并联→k加倍。</div><div class="fb coral"><strong>弹簧测力计使用：</strong>①观察量程分度值 ②调零 ③拉力沿轴线 ④视线与刻度垂直。</div></div>
+<div class="subsection"><h4><span class="tag tag-f">8.3</span> 重力</h4><p><strong>产生原因：</strong>地球吸引。<strong>方向：</strong>竖直向下（重垂线原理）。<strong>公式：</strong><var>G = mg</var>，g≈10N/kg。</p><p><strong>重心：</strong>质地均匀形状规则物体，重心在几何中心。</p><div class="fb green"><strong>案例：</strong>宇航员60kg，地球上G=600N。月球g是地球1/6，月球G=100N，但质量还是60kg。月球能举120kg→需要力=120×(10/6)=200N。地球上同样200N只能举20kg。</div></div>
+<div class="subsection"><h4><span class="tag tag-t">8.4</span> 摩擦力（三种）</h4><table><tr><th>种类</th><th>条件</th><th>公式/特点</th><th>方向</th></tr><tr><td>静摩擦</td><td>有趋势但未动</td><td>f静=外力（≤fmax）</td><td>与趋势相反</td></tr><tr><td>滑动摩擦</td><td>发生相对滑动</td><td>f=μN（只与N和μ有关！）</td><td>与相对运动相反</td></tr><tr><td>滚动摩擦</td><td>物体滚动</td><td>远小于滑动摩擦</td><td>—</td></tr></table><div class="fb coral"><strong>滑动摩擦力的"三无关"：</strong>与速度无关！与接触面积无关！与拉力大小无关！<strong>只与正压力和粗糙度有关。</strong></div><div class="fb amber"><strong>经典题：</strong>物体侧放后匀速拉动→弹簧测力计示数<var>不变</var>。因为压力和粗糙度都没变。<br><strong>测量方法：</strong>弹簧测力计匀速拉物体→F拉=f（二力平衡）。</div></div>
+<div class="subsection"><h4><span class="tag tag-e">8.5</span> 增大/减小摩擦的方法</h4><table><tr><th>目的</th><th>方法</th><th>实例</th></tr><tr><td>增大有益摩擦</td><td>增大压力/增大粗糙度</td><td>刹车用力；轮胎花纹；体操镁粉</td></tr><tr><td>减小有害摩擦</td><td>减压力/减粗糙度/变滑动为滚动/加润滑油/气垫</td><td>轴承滚珠；气垫船；磁悬浮</td></tr></table></div>
+<div class="subsection"><h4><span class="tag tag-d">8.6</span> 力的示意图画法</h4><p>①确定受力物体 ②画出作用点（通常在重心） ③沿力的方向画线段 ④画箭头 ⑤标符号和大小。</p></div>
+<h3>第8章 综合练习（5题）</h3>
+<div class="quiz"><div class="q">1. 重20N，15N推不动→f=？25N匀速→f=？</div><label><input type="radio" name="q8a">A.15;15</label><label><input type="radio" name="q8a">B.15;25</label><label><input type="radio" name="q8a">C.20;25</label><label><input type="radio" name="q8a">D.5;25</label><button onclick="r('f8a','B','没推动→静摩擦=推力15N。匀速→滑动摩擦=拉力25N。')">提交</button><div class="fdb" id="f8a"></div></div>
+<div class="quiz"><div class="q">2. 弹簧原长10cm，挂2N长12cm，挂5N长？</div><label><input type="radio" name="q8b">A.13</label><label><input type="radio" name="q8b">B.14</label><label><input type="radio" name="q8b">C.15</label><label><input type="radio" name="q8b">D.16</label><button onclick="r('f8b','C','k=2/0.02=100N/m。Δx=5/100=5cm。总长15cm。')">提交</button><div class="fdb" id="f8b"></div></div>
+<div class="quiz"><div class="q">3. 滑动摩擦力与哪个因素<strong>无关</strong>？</div><label><input type="radio" name="q8c">A. 正压力</label><label><input type="radio" name="q8c">B. 接触面粗糙度</label><label><input type="radio" name="q8c">C. 接触面积</label><label><input type="radio" name="q8c">D. 都有关</label><button onclick="r('f8c','C','f=μN，只与μ和N有关。与面积、速度无关！')">提交</button><div class="fdb" id="f8c"></div></div>
+<div class="quiz"><div class="q">4. 月球引力为地球1/6。60kg宇航员在月球：质量？重力？</div><label><input type="radio" name="q8d">A.60kg,100N</label><label><input type="radio" name="q8d">B.60kg,600N</label><label><input type="radio" name="q8d">C.10kg,100N</label><label><input type="radio" name="q8d">D.10kg,600N</label><button onclick="r('f8d','A','质量不变60kg。G月=60×10/6=100N。')">提交</button><div class="fdb" id="f8d"></div></div>
+<div class="quiz"><div class="q">5. 弹簧截去1/3，劲度系数？</div><label><input type="radio" name="q8e">A.不变</label><label><input type="radio" name="q8e">B.变1/3</label><label><input type="radio" name="q8e">C.变1.5倍</label><label><input type="radio" name="q8e">D.变3倍</label><button onclick="r('f8e','C','k∝1/L。剩2/3长度→k变3/2=1.5倍。')">提交</button><div class="fdb" id="f8e"></div></div>
 </section>
-
-<!-- ═══════════ CHAPTER 9 ═══════════ -->
-<section id="ch9" class="section">
-<h2><span class="emoji">🏃</span> 第9章 力与运动</h2>
-
-<div class="card">
-  <h3><span class="tag tag-key">二力平衡</span></h3>
-  <p><strong>四个条件（缺一不可）：</strong></p>
-  <p style="font-size:15px;text-align:center;padding:8px;background:var(--purple-light);border-radius:8px;">
-  ① 同一物体 &nbsp;|&nbsp; ② 大小相等 &nbsp;|&nbsp; ③ 方向相反 &nbsp;|&nbsp; ④ 同一直线
-  </p>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-tip">对比</span> 平衡力 vs 相互作用力</h3>
-  <table>
-    <tr><th></th><th>平衡力</th><th>相互作用力</th></tr>
-    <tr><td>作用在</td><td><strong>同一个</strong>物体</td><td><strong>两个不同</strong>物体</td></tr>
-    <tr><td>举例</td><td>书放桌上：重力=支持力</td><td>书压桌 ← → 桌撑书</td></tr>
-  </table>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-key">牛顿第一定律</span></h3>
-  <p>一切物体在<span class="tooltip" data-tip="注意：是"不受外力"，不是"不受力"">不受外力</span>时，总保持静止或匀速直线运动。</p>
-  <p>⚠️ 力是<span class="tooltip" data-tip="不是维持运动的原因！亚里士多德错了！">改变运动状态的原因</span>，不是维持运动的原因。</p>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-tip">惯性</span></h3>
-  <p><strong>一切物体任何时候都有惯性。</strong></p>
-  <p>⚠️ 惯性不是力！不能说"惯性力"。</p>
-  <p>惯性大小<span class="tooltip" data-tip="与速度、形状无关！">只与质量有关</span>。</p>
-</div>
-
-<div class="quiz" id="quiz9">
-  <div class="question">🧪 传送带上的物体随传送带匀速运动。物体受不受摩擦力？</div>
-  <label><input type="radio" name="q9" value="a">受向右的摩擦力</label>
-  <label><input type="radio" name="q9" value="b">不受摩擦力</label>
-  <label><input type="radio" name="q9" value="c">受向左的摩擦力</label>
-  <label><input type="radio" name="q9" value="d">无法确定</label>
-  <button onclick="checkQ9()">提交</button>
-  <div class="feedback" id="fb9"></div>
-</div>
+<section id="ch9"><h2>第9章 力与运动</h2>
+<div class="subsection"><h4><span class="tag tag-k">9.1</span> 二力平衡</h4><p><strong>平衡状态：</strong>静止或匀速直线运动。<strong>四个条件：</strong>同体+等大+反向+共线。</p><div class="fb amber"><strong>案例：</strong>吊灯静止→G=T。汽车匀速→F牵=f。</div></div>
+<div class="subsection"><h4><span class="tag tag-t">9.2</span> 平衡力 vs 相互作用力（高频考点）</h4><table><tr><th>区别</th><th>一对平衡力</th><th>一对相互作用力</th></tr><tr><td>作用对象</td><td><strong>同一物体</strong></td><td><strong>两个不同物体</strong></td></tr><tr><td>举例</td><td>书放桌上：G=N</td><td>书压桌↔桌撑书</td></tr></table><div class="fb coral">判断口诀：<strong>"一个物体→平衡力；两个物体→相互作用力"</strong></div></div>
+<div class="subsection"><h4><span class="tag tag-k">9.3</span> 牛顿第一定律（惯性定律）</h4><p>一切物体在<strong>不受外力</strong>时，总保持静止或匀速直线运动。</p><p>不能直接用实验验证，是<strong>实验+推理</strong>得出的。</p><div class="fb green"><strong>实验探究：</strong>小车同一高度滑下→控制初速度相同→表面越光滑→阻力越小→滑行越远。推论：若无阻力→永远运动。</div></div>
+<div class="subsection"><h4><span class="tag tag-t">9.4</span> 惯性（最容易混淆的概念）</h4><p><strong>一切物体在任何时候、任何状态下都有惯性。</strong></p><div class="fb coral"><strong>三大误区：</strong>①惯性<var>不是力</var>！不能说"惯性力"。②惯性<var>只与质量有关</var>，与速度无关！③"速度大惯性大"是错的。</div><div class="fb"><table><tr><th>利用惯性</th><th>防止惯性危害</th></tr><tr><td>跳远助跑、拍打衣服除尘</td><td>安全带、安全气囊、保持车距</td></tr></table></div><div class="fb amber"><strong>刹车前倾解释模板：</strong>刹车前乘客与车一起运动。刹车时脚随车停止，而<var>上身由于惯性仍保持原来运动状态</var>，继续向前→身体前倾。</div></div>
+<div class="subsection"><h4><span class="tag tag-d">9.5</span> 力与运动的关系（核心总结）</h4><table><tr><th>受力情况</th><th>合力</th><th>运动状态</th><th>实例</th></tr><tr><td>不受力/受平衡力</td><td>0</td><td>静止或匀速</td><td>吊灯、匀速汽车</td></tr><tr><td>受非平衡力</td><td>≠0</td><td>加速/减速/转向</td><td>起跑、刹车、转弯</td></tr></table><div class="fb green"><strong>核心结论：</strong>力是改变运动状态的原因，<strong>不是维持运动的原因</strong>。</div></div>
+<div class="subsection"><h4><span class="tag tag-k">9.6</span> 传送带问题专题</h4><div class="fb amber"><strong>一起匀速：</strong>无相对运动趋势→<var>不受摩擦力</var>。<br><strong>传送带加速：</strong>受<var>向前</var>的静摩擦。<br><strong>传送带减速：</strong>受<var>向后</var>的静摩擦。</div></div>
+<h3>第9章 综合练习（5题）</h3>
+<div class="quiz"><div class="q">1. 传送带上物体匀速运动，受不受摩擦力？</div><label><input type="radio" name="q9a">A.受向右</label><label><input type="radio" name="q9a">B.不受</label><label><input type="radio" name="q9a">C.受向左</label><label><input type="radio" name="q9a">D.无法确定</label><button onclick="r('f9a','B','匀速→平衡→水平合力为零→无摩擦。')">提交</button><div class="fdb" id="f9a"></div></div>
+<div class="quiz"><div class="q">2. 三要素完全相同的两个力作用在同一物体上（ ）</div><label><input type="radio" name="q9b">A.一定改变</label><label><input type="radio" name="q9b">B.一定不变</label><label><input type="radio" name="q9b">C.可能变</label><label><input type="radio" name="q9b">D.无法确定</label><button onclick="r('f9b','A','同向等大→合力=2F≠0→运动状态一定改变。')">提交</button><div class="fdb" id="f9b"></div></div>
+<div class="quiz"><div class="q">3. 汽车匀速，说法正确的是（ ）</div><label><input type="radio" name="q9c">A.牵引力>阻力</label><label><input type="radio" name="q9c">B.关闭发动机立刻停止</label><label><input type="radio" name="q9c">C.压力和支持力是平衡力</label><label><input type="radio" name="q9c">D.受力平衡</label><button onclick="r('f9c','D','匀速→平衡。A错(等大)；B错(惯性)；C错(相互作用力)。')">提交</button><div class="fdb" id="f9c"></div></div>
+<div class="quiz"><div class="q">4. 关于惯性，正确的是（ ）</div><label><input type="radio" name="q9d">A.速度越大惯性越大</label><label><input type="radio" name="q9d">B.静止物体没有惯性</label><label><input type="radio" name="q9d">C.惯性只与质量有关</label><label><input type="radio" name="q9d">D.月球上物体没有惯性</label><button onclick="r('f9d','C','惯性只与质量有关。一切物体都有惯性。')">提交</button><div class="fdb" id="f9d"></div></div>
+<div class="quiz"><div class="q">5. 铅柱磨平紧压后"粘"在一起，说明（ ）</div><label><input type="radio" name="q9e">A.大气压作用</label><label><input type="radio" name="q9e">B.分子间有引力</label><label><input type="radio" name="q9e">C.分子间有斥力</label><label><input type="radio" name="q9e">D.摩擦力作用</label><button onclick="r('f9e','B','铅柱粘在一起是分子引力的经典实验。')">提交</button><div class="fdb" id="f9e"></div></div>
 </section>
-
-<!-- ═══════════ CHAPTER 10 ═══════════ -->
-<section id="ch10" class="section">
-<h2><span class="emoji">🌊</span> 第10章 压强和浮力</h2>
-
-<div class="formula-box">
-  固体压强：<var>p</var> = <var>F</var> / <var>S</var>
-  &nbsp;&nbsp;|&nbsp;&nbsp; 单位：<var>Pa</var>（帕斯卡）&nbsp;&nbsp;|&nbsp;&nbsp; 1Pa = 1N/m²
-</div>
-
-<div class="formula-box">
-  液体压强：<var>p</var> = <var>ρgh</var>
-  &nbsp;&nbsp;|&nbsp;&nbsp; 只与 ρ 和 h 有关！与容器形状<span class="tooltip" data-tip="异形容器中F≠G！">无关</span>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-tip">压强变化</span></h3>
-  <table>
-    <tr><th>目的</th><th>方法</th><th>例子</th></tr>
-    <tr><td>增大压强</td><td>增F / 减S</td><td>刀刃、图钉尖</td></tr>
-    <tr><td>减小压强</td><td>减F / 增S</td><td>坦克履带、书包宽肩带</td></tr>
-  </table>
-  <p>⚠️ 站在地上 vs 走路——面积差一倍，压强也差一倍！</p>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-key">大气压强</span></h3>
-  <p>1标准大气压 = <strong>1.013×10⁵ Pa</strong> = 760mmHg ≈ 10m水柱</p>
-  <p>海拔越高 → 气压越<span class="tooltip" data-tip="每升10m约降100Pa">低</span>；气压越低 → 沸点越<span class="tooltip" data-tip="高压锅就是提高气压→提高沸点">低</span></p>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-key">流体压强</span> 伯努利原理</h3>
-  <p>流体中，<strong>流速大的地方压强小</strong>。</p>
-  <p>应用：飞机升力（机翼上快下慢）；站台安全线；喷雾器。</p>
-</div>
-
-<div class="formula-box" style="border-color:var(--coral); background:var(--coral-light);">
-  ⭐ 阿基米德原理：<var>F</var><sub>浮</sub> = <var>G</var><sub>排</sub> = <var>ρ</var><sub>液</sub>·<var>g</var>·<var>V</var><sub>排</sub>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-formula">四种求浮力方法</span></h3>
-  <table>
-    <tr><th>方法</th><th>公式</th><th>何时用</th></tr>
-    <tr><td>压力差法</td><td>F<sub>浮</sub>=F<sub>上</sub>-F<sub>下</sub></td><td>知上下表面压力</td></tr>
-    <tr><td>称重法</td><td>F<sub>浮</sub>=G-F<sub>示</sub></td><td>有弹簧测力计</td></tr>
-    <tr><td>阿基米德法</td><td>F<sub>浮</sub>=ρ<sub>液</sub>gV<sub>排</sub></td><td>知ρ<sub>液</sub>和V<sub>排</sub></td></tr>
-    <tr><td>平衡法</td><td>F<sub>浮</sub>=G<sub>物</sub></td><td>漂浮/悬浮</td></tr>
-  </table>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-key">浮沉条件</span></h3>
-  <table>
-    <tr><th>状态</th><th>F<sub>浮</sub> vs G</th><th>ρ<sub>物</sub> vs ρ<sub>液</sub></th><th>V<sub>排</sub></th></tr>
-    <tr><td>上浮</td><td>F<sub>浮</sub> > G</td><td>ρ<sub>物</sub> < ρ<sub>液</sub></td><td>最终V<sub>排</sub><V<sub>物</sub></td></tr>
-    <tr><td>下沉</td><td>F<sub>浮</sub> < G</td><td>ρ<sub>物</sub> > ρ<sub>液</sub></td><td>V<sub>排</sub>=V<sub>物</sub></td></tr>
-    <tr><td>悬浮</td><td>F<sub>浮</sub> = G</td><td>ρ<sub>物</sub> = ρ<sub>液</sub></td><td>V<sub>排</sub>=V<sub>物</sub></td></tr>
-    <tr><td>漂浮</td><td>F<sub>浮</sub> = G</td><td>ρ<sub>物</sub> < ρ<sub>液</sub></td><td>V<sub>排</sub><V<sub>物</sub></td></tr>
-  </table>
-</div>
-
-<div class="formula-box" style="border-color:var(--green); background:var(--green-light);">
-  🏆 漂浮黄金公式：<var>ρ</var><sub>物</sub> / <var>ρ</var><sub>液</sub> = <var>V</var><sub>排</sub> / <var>V</var><sub>物</sub>
-</div>
-
-<div class="card">
-  <h3><span class="tag tag-example">应用</span> 浮力的实际应用</h3>
-  <table>
-    <tr><th>应用</th><th>原理</th></tr>
-    <tr><td>轮船</td><td>空心法增大V<sub>排</sub>；河入海→上浮（浮力不变）</td></tr>
-    <tr><td>潜水艇</td><td>改变自身重力（进水→沉，排水→浮）</td></tr>
-    <tr><td>密度计</td><td>漂浮工作；刻度"上小下大"</td></tr>
-    <tr><td>气球</td><td>充密度小于空气的气体</td></tr>
-  </table>
-</div>
-
-<div class="quiz" id="quiz10">
-  <div class="question">🧪 正方体木块漂浮水面，2/5露出。木块密度？放入某液体，1/4露出，液体密度？（ρ<sub>水</sub>=1g/cm³）</div>
-  <label><input type="radio" name="q10" value="a">ρ<sub>木</sub>=0.4, ρ<sub>液</sub>=0.6</label>
-  <label><input type="radio" name="q10" value="b">ρ<sub>木</sub>=0.6, ρ<sub>液</sub>=0.8</label>
-  <label><input type="radio" name="q10" value="c">ρ<sub>木</sub>=0.5, ρ<sub>液</sub>=0.75</label>
-  <label><input type="radio" name="q10" value="d">ρ<sub>木</sub>=0.6, ρ<sub>液</sub>=0.9</label>
-  <button onclick="checkQ10()">提交</button>
-  <div class="feedback" id="fb10"></div>
-</div>
+<section id="ch10"><h2>第10章 压强和浮力</h2>
+<div class="subsection"><h4><span class="tag tag-f">10.1</span> 压力与固体压强</h4><p><strong>压力：</strong>垂直压在物体表面上的力。<strong>压强：</strong><var>p = F / S</var>。单位：Pa，1Pa=1N/m²。</p><div class="fb amber"><strong>压力≠重力！</strong>只有水平面上静止时F=G。<strong>经典易错：</strong>60kg人每只脚150cm²。站立→p=20000Pa；走路→p=40000Pa。<var>面积差一倍，压强差一倍！</var></div></div>
+<div class="subsection"><h4><span class="tag tag-f">10.2</span> 液体压强</h4><p><strong>公式：</strong><var>p = ρgh</var>。只与ρ和h有关！与容器形状无关。</p><div class="fb coral">计算液体对容器底压力：F=pS=ρghS。直筒容器：F=G液✓；异形容器：F≠G液！</div></div>
+<div class="subsection"><h4><span class="tag tag-d">10.3</span> 大气压强</h4><p>1标准大气压 = <strong>1.013×10⁵Pa</strong> = 760mmHg ≈ 10m水柱。</p><p>海拔越高气压越低；气压越低沸点越低（高压锅原理）。</p><p><strong>应用：</strong>吸盘挂钩、抽水机、注射器吸药液、吸管喝饮料。</p></div>
+<div class="subsection"><h4><span class="tag tag-d">10.4</span> 流体压强（伯努利原理）</h4><p>流体中，<strong>流速大的位置压强小</strong>。</p><div class="fb amber"><strong>飞机升力：</strong>机翼上表面凸→流速快→压强小；下表面平→流速慢→压强大→产生<var>升力</var>。<br><strong>站台安全线：</strong>火车驶过→外侧气压大→把人推向火车。</div></div>
+<div class="subsection"><h4><span class="tag tag-f">10.5</span> 浮力与阿基米德原理</h4><p><strong>浮力方向：</strong>竖直向上。<strong>阿基米德原理：</strong><var>F浮 = G排 = ρ液·g·V排</var></p><div class="fb coral">F浮只取决于ρ液和V排！与物体密度、形状、深度均无关。</div><p><strong>四种求浮力法：</strong></p><table><tr><th>方法</th><th>公式</th><th>何时用</th></tr><tr><td>压力差</td><td>F浮=F上-F下</td><td>知上下表面压力</td></tr><tr><td>称重</td><td>F浮=G-F示</td><td>题中出现"弹簧测力计示数"</td></tr><tr><td>阿基米德</td><td>F浮=ρ液gV排</td><td>知ρ液和V排</td></tr><tr><td>平衡</td><td>F浮=G物</td><td>漂浮或悬浮</td></tr></table></div>
+<div class="subsection"><h4><span class="tag tag-t">10.6</span> 浮沉条件——核心判断</h4><table><tr><th>状态</th><th>F浮 vs G</th><th>ρ物 vs ρ液</th></tr><tr><td>上浮</td><td>F浮>G</td><td>ρ物<ρ液</td></tr><tr><td>下沉</td><td>F浮<G</td><td>ρ物>ρ液</td></tr><tr><td>悬浮</td><td>F浮=G</td><td>ρ物=ρ液</td></tr><tr><td>漂浮</td><td>F浮=G</td><td>ρ物<ρ液</td></tr></table><div class="fb green"><strong>漂浮黄金公式：</strong>ρ物/ρ液 = V排/V物。例：木块漂浮，2/5露出→ρ木=3ρ水/5=0.6g/cm³。</div></div>
+<div class="subsection"><h4><span class="tag tag-e">10.7</span> 浮力的应用</h4><table><tr><th>应用</th><th>原理</th><th>关键点</th></tr><tr><td>轮船</td><td>空心法增大V排</td><td>河→海：上浮（浮力不变）</td></tr><tr><td>潜水艇</td><td>改变自身重力</td><td>进水→沉；排水→浮</td></tr><tr><td>密度计</td><td>漂浮（F浮=G）</td><td>刻度"上小下大"</td></tr><tr><td>气球/飞艇</td><td>充密度小于空气的气体</td><td>热空气、氢气、氦气</td></tr></table></div>
+<h3>第10章 综合练习（5题）</h3>
+<div class="quiz"><div class="q">1. 60kg人每只脚150cm²，走路时压强？(g=10)</div><label><input type="radio" name="q10a">A.10000</label><label><input type="radio" name="q10a">B.20000</label><label><input type="radio" name="q10a">C.40000</label><label><input type="radio" name="q10a">D.80000</label><button onclick="r('f10a','C','G=600。走路单脚S=0.015m²。p=40000Pa。')">提交</button><div class="fdb" id="f10a"></div></div>
+<div class="quiz"><div class="q">2. 等质量水和酒精装同样容器，对底压强比？</div><label><input type="radio" name="q10b">A.1:1</label><label><input type="radio" name="q10b">B.5:4</label><label><input type="radio" name="q10b">C.4:5</label><label><input type="radio" name="q10b">D.无法确定</label><button onclick="r('f10b','A','等质量→等重力→F同→p=F/S同→1:1。')">提交</button><div class="fdb" id="f10b"></div></div>
+<div class="quiz"><div class="q">3. 金属块空气7.8N，浸没水6.8N，浮力？</div><label><input type="radio" name="q10c">A.0.5</label><label><input type="radio" name="q10c">B.1</label><label><input type="radio" name="q10c">C.2</label><label><input type="radio" name="q10c">D.6.8</label><button onclick="r('f10c','B','称重法：F浮=G-F示=7.8-6.8=1N。')">提交</button><div class="fdb" id="f10c"></div></div>
+<div class="quiz"><div class="q">4. 轮船从河驶入海，浮力？</div><label><input type="radio" name="q10d">A.变大</label><label><input type="radio" name="q10d">B.变小</label><label><input type="radio" name="q10d">C.不变</label><label><input type="radio" name="q10d">D.无法确定</label><button onclick="r('f10d','C','始终漂浮→F浮=G船不变。但ρ变大→V排变小→上浮。')">提交</button><div class="fdb" id="f10d"></div></div>
+<div class="quiz"><div class="q">5. 木块漂浮水面，2/5露出。木块密度？</div><label><input type="radio" name="q10e">A.0.4</label><label><input type="radio" name="q10e">B.0.5</label><label><input type="radio" name="q10e">C.0.6</label><label><input type="radio" name="q10e">D.0.8</label><button onclick="r('f10e','C','V排=3V/5。ρ木/ρ水=3/5→ρ木=0.6。')">提交</button><div class="fdb" id="f10e"></div></div>
 </section>
-
 </div>
-
-<footer>
-  <p>📐 肖老师 · 苏科版八下物理互动学习平台 | 知识点 + 实验 + 公式 + 自测</p>
-  <p>继续加油，杰子！💪</p>
-</footer>
-
+<footer><p>肖老师 · 苏科版八下物理完整学习平台 | 5章×6+节 × 案例 × 24道自测题</p><p>杰子，物理基础打扎实了，学电学就不怕了！</p></footer>
 <script>
-function scrollToSection(id) {
-  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).scrollIntoView({behavior:'smooth'});
-  setTimeout(() => {
-    document.querySelectorAll('nav button').forEach(b => {
-      if(b.textContent.includes(id.replace('ch','第')+'章')) b.classList.add('active');
-    });
-  }, 500);
-}
-window.addEventListener('scroll', () => {
-  let current = '';
-  document.querySelectorAll('.section').forEach(s => {
-    if(window.scrollY >= s.offsetTop - 120) current = s.id;
-  });
-  document.querySelectorAll('nav button').forEach(b => {
-    b.classList.remove('active');
-    if(current && b.textContent.includes(current.replace('ch','第')+'章')) b.classList.add('active');
-  });
-});
-
-function checkQ6() {
-  const fb = document.getElementById('fb6');
-  const checked = document.querySelector('input[name="q6"]:checked');
-  if(!checked) { fb.textContent='请先选择答案！'; fb.className='feedback wrong'; return; }
-  if(checked.value==='b') { fb.textContent='✅ 正确！实心铜质量=8.9×30=267g>178g（质量小了）→空心。铜体积=178/8.9=20cm³→空心=30-20=10cm³'; fb.className='feedback correct'; }
-  else { fb.textContent='❌ 再想想！实心质量=8.9×30=267g>178g → 空心。空心体积=30-178/8.9=10cm³'; fb.className='feedback wrong'; }
-}
-function checkQ8() {
-  const fb = document.getElementById('fb8');
-  const checked = document.querySelector('input[name="q8"]:checked');
-  if(!checked) { fb.textContent='请先选择答案！'; fb.className='feedback wrong'; return; }
-  if(checked.value==='b') { fb.textContent='✅ 正确！没推动→静止→平衡→f静=推力=15N。匀速→平衡→f滑=拉力=25N。'; fb.className='feedback correct'; }
-  else { fb.textContent='❌ 注意区分：没推动是静摩擦=推力；匀速是滑动摩擦=拉力。答案15N和25N。'; fb.className='feedback wrong'; }
-}
-function checkQ9() {
-  const fb = document.getElementById('fb9');
-  const checked = document.querySelector('input[name="q9"]:checked');
-  if(!checked) { fb.textContent='请先选择答案！'; fb.className='feedback wrong'; return; }
-  if(checked.value==='b') { fb.textContent='✅ 正确！匀速→平衡→水平方向合力为零→无摩擦！物体与传送带相对静止且无相对运动趋势。'; fb.className='feedback correct'; }
-  else { fb.textContent='❌ 传送带一起匀速→无相对运动趋势→不受摩擦力！这是最容易错的考点。'; fb.className='feedback wrong'; }
-}
-function checkQ10() {
-  const fb = document.getElementById('fb10');
-  const checked = document.querySelector('input[name="q10"]:checked');
-  if(!checked) { fb.textContent='请先选择答案！'; fb.className='feedback wrong'; return; }
-  if(checked.value==='b') { fb.textContent='✅ 正确！ρ木/ρ水=V排/V=(3/5)/1 → ρ木=0.6。ρ木/ρ液=(3/4)/1 → ρ液=0.6×4/3=0.8。'; fb.className='feedback correct'; }
-  else { fb.textContent='❌ 用漂浮公式ρ物/ρ液=V排/V物：水中3/5浸入→ρ木=0.6；液体中3/4浸入→ρ液=ρ木×4/3=0.8。'; fb.className='feedback wrong'; }
-}
+function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+window.addEventListener('scroll',()=>{let c='';document.querySelectorAll('section').forEach(s=>{if(window.scrollY>=s.offsetTop-130)c=s.id});document.querySelectorAll('nav button').forEach(b=>{b.classList.remove('active');if(c&&b.textContent.includes(c.replace('ch','')))b.classList.add('active')})})
+function r(fid,ans,exp){const fb=document.getElementById(fid);const q=document.querySelector('input[name="'+fid.replace('f','q')+'"]:checked');if(!q){fb.textContent='请先选择！';fb.className='fdb no';return}if(q.parentElement.textContent.trim().startsWith(ans+'.')){fb.innerHTML='✅ 正确！'+exp;fb.className='fdb ok'}else{fb.innerHTML='❌ '+exp;fb.className='fdb no'}}
 </script>
 </body>
 </html>
